@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VRYKS — Strategy Meets Creative Excellence</title>
+    <meta name="description" content="VRYKS is a premium media and creative studio. Brand strategy, design systems, web development, content creation, photography, and marketing — one integrated system." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+
+    <!-- Scroll Progress -->
+    <div id="scroll-progress" aria-hidden="true"><div id="scroll-bar"></div></div>
+
+    <!-- Page Transition Curtain (Plan 2) -->
+    <div id="pt" aria-hidden="true">
+      <div class="pt-s"></div>
+      <div class="pt-s"></div>
+      <div class="pt-s"></div>
+    </div>
+
+    <!-- Cursor Label (Plan 8) -->
+    <div id="cursor-label" aria-hidden="true"></div>
+
+    <!-- ===================== LOADER ===================== -->
+    <div id="loader" role="status" aria-live="polite" aria-label="Loading VRYKS">
+      <div class="loader-bg"></div>
+      <div class="loader-inner">
+        <div class="loader-logo">VRYKS</div>
+        <div class="loader-lines" aria-hidden="true">
+          <span class="loader-line">CALIBRATING SENSORY ENGINE......<em class="ll-ok">OK</em></span>
+          <span class="loader-line">LOADING CREATIVE SYSTEMS..........<em class="ll-ok">OK</em></span>
+          <span class="loader-line">INITIALIZING BRAND INTELLIGENCE...<em class="ll-ok">OK</em></span>
+          <span class="loader-line">RENDERING EXPERIENCE...............<em class="ll-ok">DONE</em></span>
+        </div>
+        <div class="loader-bar-wrap" aria-hidden="true">
+          <div class="loader-bar"><div class="loader-bar-fill"></div></div>
+          <span class="loader-pct">0%</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div id="cursor-dot" aria-hidden="true"></div>
+    <div id="cursor-ring" aria-hidden="true"></div>
+
+    <!-- 3D Background Canvas -->
+    <canvas id="three-canvas" aria-hidden="true"></canvas>
+
+    <!-- Video Background -->
+    <video
+      id="bg-video"
+      aria-hidden="true"
+      autoplay muted loop playsinline
+      crossorigin="anonymous"
+      style="position:fixed;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:-1;opacity:0.18;pointer-events:none;"
+    ></video>
+
+    <!-- Noise Overlay -->
+    <div id="noise-overlay" aria-hidden="true"></div>
+
+    <!-- ===================== NAV ===================== -->
+    <header class="navbar" role="banner">
+      <a href="/" class="logo" aria-label="VRYKS Home">VRYKS</a>
+      <nav role="navigation" aria-label="Primary">
+        <ul class="nav-links">
+          <li><a href="#thesis" class="nav-link js-magnetic">Thesis</a></li>
+          <li><a href="#capabilities" class="nav-link js-magnetic">Services</a></li>
+          <li><a href="#portfolio" class="nav-link js-magnetic">Work</a></li>
+          <li><a href="#process" class="nav-link js-magnetic">Process</a></li>
+          <li><a href="#team" class="nav-link js-magnetic">Team</a></li>
+        </ul>
+      </nav>
+      <a href="#contact" class="nav-cta js-magnetic" aria-label="Start Discovery">Start Discovery</a>
+    </header>
+
+    <main>
+
+      <!-- ===================== HERO ===================== -->
+      <!-- Beat 1: THE CLAIM — silence before the statement -->
+      <section class="hero" id="hero" aria-labelledby="hero-heading">
+        <div class="hero-inner">
+          <!-- Suspense: single word at a time, staggered reveal -->
+          <h1 class="hero-title" id="hero-heading">
+            <span class="hero-line"><span class="word">Strategy</span></span>
+            <span class="hero-line">
+              <span class="word">Meets</span>
+              <span class="word w-accent">Creative</span>
+            </span>
+            <span class="hero-line"><span class="word">Excellence.</span></span>
+          </h1>
+          <p class="hero-sub">
+            VRYKS is a premium media and creative studio that designs, builds, and scales brands from the core out. We integrate high-level strategy with world-class digital execution.
+          </p>
+          <div class="hero-cta-wrap">
+            <a href="#contact" class="btn-primary js-magnetic" id="hero-cta">
+              <span class="btn-label">Start the Discovery</span>
+              <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="hero-scroll-indicator" aria-hidden="true">
+          <span class="scroll-line"></span>
+          <span class="scroll-text">Scroll</span>
+        </div>
+        <!-- Ambient marquee for tension -->
+        <div class="hero-marquee" aria-hidden="true">
+          <div class="marquee-track">
+            <span>Brand Strategy &nbsp;—&nbsp; Web Development &nbsp;—&nbsp; Visual Identity &nbsp;—&nbsp; Content Systems &nbsp;—&nbsp; Photography &nbsp;—&nbsp; Marketing &nbsp;—&nbsp; Brand Strategy &nbsp;—&nbsp; Web Development &nbsp;—&nbsp; Visual Identity &nbsp;—&nbsp; Content Systems &nbsp;—&nbsp; Photography &nbsp;—&nbsp; Marketing &nbsp;—&nbsp; </span>
+            <span>Brand Strategy &nbsp;—&nbsp; Web Development &nbsp;—&nbsp; Visual Identity &nbsp;—&nbsp; Content Systems &nbsp;—&nbsp; Photography &nbsp;—&nbsp; Marketing &nbsp;—&nbsp; Brand Strategy &nbsp;—&nbsp; Web Development &nbsp;—&nbsp; Visual Identity &nbsp;—&nbsp; Content Systems &nbsp;—&nbsp; Photography &nbsp;—&nbsp; Marketing &nbsp;—&nbsp; </span>
+          </div>
+          <div class="marquee-track marquee-track--reverse">
+            <span>Strategy &nbsp;—&nbsp; Design &nbsp;—&nbsp; Technology &nbsp;—&nbsp; Identity &nbsp;—&nbsp; Commerce &nbsp;—&nbsp; Production &nbsp;—&nbsp; Strategy &nbsp;—&nbsp; Design &nbsp;—&nbsp; Technology &nbsp;—&nbsp; Identity &nbsp;—&nbsp; Commerce &nbsp;—&nbsp; Production &nbsp;—&nbsp; </span>
+            <span>Strategy &nbsp;—&nbsp; Design &nbsp;—&nbsp; Technology &nbsp;—&nbsp; Identity &nbsp;—&nbsp; Commerce &nbsp;—&nbsp; Production &nbsp;—&nbsp; Strategy &nbsp;—&nbsp; Design &nbsp;—&nbsp; Technology &nbsp;—&nbsp; Identity &nbsp;—&nbsp; Commerce &nbsp;—&nbsp; Production &nbsp;—&nbsp; </span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== THESIS ===================== -->
+      <!-- Beat 2: THE CHALLENGE — the uncomfortable truth -->
+      <section class="thesis" id="thesis" aria-labelledby="thesis-heading">
+        <div class="thesis-sticky">
+          <div class="container">
+            <div class="thesis-grid">
+              <div class="thesis-left">
+                <span class="eyebrow thesis-eyebrow">Our Position</span>
+                <h2 class="thesis-title" id="thesis-heading">
+                  <span class="t-line"><span class="t-word">Performance</span></span>
+                  <span class="t-line"><span class="t-word">is not</span></span>
+                  <span class="t-line"><span class="t-word t-accent">an accident.</span></span>
+                </h2>
+              </div>
+              <div class="thesis-right">
+                <p class="thesis-body thesis-p1">
+                  Most agencies offer decoration.
+                  <em class="thesis-highlight"> VRYKS offers systems.</em>
+                </p>
+                <p class="thesis-body thesis-p2">
+                  We believe every creative decision must be a commercial one. By merging deep market strategy with cinematic design, we create brands that don't just look premium — they perform at scale.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== CAPABILITIES / SERVICES ===================== -->
+      <!-- Beat 3: THE PROOF — one discipline at a time, with weight -->
+      <section class="capabilities" id="capabilities" aria-labelledby="caps-heading">
+        <div class="container">
+          <div class="caps-header">
+            <span class="eyebrow">What We Do</span>
+            <h2 class="caps-title" id="caps-heading">Six disciplines.<br/>One integrated system.</h2>
+          </div>
+
+          <!-- Full-width service cards — each one earns its place -->
+          <div class="services-grid" role="list">
+
+            <article class="svc-card js-svc-card" data-index="01" role="listitem">
+              <div class="svc-border"></div>
+              <div class="svc-head">
+                <span class="svc-num">01</span>
+                <h3 class="svc-name">Brand Strategy<br/>&amp; Positioning</h3>
+              </div>
+              <p class="svc-desc">We find the white space in your market and build an authoritative narrative that commands attention and pricing power. Competitive audit, messaging hierarchy, go-to-market.</p>
+              <ul class="svc-tags" aria-label="Service deliverables">
+                <li>Market Research</li><li>Audience Profiling</li><li>Messaging Architecture</li><li>Brand Voice</li>
+              </ul>
+            </article>
+
+            <article class="svc-card js-svc-card" data-index="02" role="listitem">
+              <div class="svc-border"></div>
+              <div class="svc-head">
+                <span class="svc-num">02</span>
+                <h3 class="svc-name">Design Systems<br/>&amp; Visual Identity</h3>
+              </div>
+              <p class="svc-desc">Cinematic, minimal, editorial design that projects premium value across every touchpoint. Logotype, colour systems, typography, motion language, and full brand guidelines.</p>
+              <ul class="svc-tags" aria-label="Service deliverables">
+                <li>Logomark</li><li>Colour &amp; Type</li><li>Brand Book</li><li>UI Components</li>
+              </ul>
+            </article>
+
+            <article class="svc-card js-svc-card" data-index="03" role="listitem">
+              <div class="svc-border"></div>
+              <div class="svc-head">
+                <span class="svc-num">03</span>
+                <h3 class="svc-name">Web Development<br/>&amp; Digital Products</h3>
+              </div>
+              <p class="svc-desc">High-performance, immersive web experiences engineered for conversion. From 3D scroll-driven landing pages to full-stack SaaS dashboards and e-commerce systems.</p>
+              <ul class="svc-tags" aria-label="Service deliverables">
+                <li>3D Web</li><li>CMS &amp; E-commerce</li><li>SaaS Platforms</li><li>Performance Optimisation</li>
+              </ul>
+            </article>
+
+            <article class="svc-card js-svc-card" data-index="04" role="listitem">
+              <div class="svc-border"></div>
+              <div class="svc-head">
+                <span class="svc-num">04</span>
+                <h3 class="svc-name">Scripting<br/>&amp; Copywriting</h3>
+              </div>
+              <p class="svc-desc">Words that do commercial work. Video scripts, UX copy, long-form editorial, ad copy, and sales sequences engineered to move audiences from awareness to decision.</p>
+              <ul class="svc-tags" aria-label="Service deliverables">
+                <li>Video Scripts</li><li>UX Copy</li><li>Ad Copy</li><li>Sales Sequences</li>
+              </ul>
+            </article>
+
+            <article class="svc-card js-svc-card" data-index="05" role="listitem">
+              <div class="svc-border"></div>
+              <div class="svc-head">
+                <span class="svc-num">05</span>
+                <h3 class="svc-name">Photography<br/>&amp; Visual Production</h3>
+              </div>
+              <p class="svc-desc">Editorial and commercial photography that positions your brand at a premium tier. Product shoots, brand campaigns, architecture, and portrait sessions — directed with intent.</p>
+              <ul class="svc-tags" aria-label="Service deliverables">
+                <li>Brand Photography</li><li>Product Shoots</li><li>Campaign Visuals</li><li>Post-Production</li>
+              </ul>
+            </article>
+
+            <article class="svc-card js-svc-card" data-index="06" role="listitem">
+              <div class="svc-border"></div>
+              <div class="svc-head">
+                <span class="svc-num">06</span>
+                <h3 class="svc-name">Performance<br/>Marketing</h3>
+              </div>
+              <p class="svc-desc">Paid and organic systems that scale. Meta and Google Ads, influencer strategy, SEO architecture, email sequences, and content calendars — all aligned to one commercial objective.</p>
+              <ul class="svc-tags" aria-label="Service deliverables">
+                <li>Paid Ads</li><li>SEO</li><li>Influencer Strategy</li><li>Email Marketing</li>
+              </ul>
+            </article>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== STATS ===================== -->
+      <section class="stats" id="stats" aria-label="Studio at a glance">
+        <div class="container">
+          <div class="stats-grid">
+            <div class="stat-item">
+              <div class="stat-display"><span class="stat-num js-count" data-to="50">0</span><span class="stat-suffix">+</span></div>
+              <span class="stat-label">Projects Delivered</span>
+            </div>
+            <div class="stat-item">
+              <div class="stat-display"><span class="stat-num js-count" data-to="18">0</span><span class="stat-suffix">+</span></div>
+              <span class="stat-label">Brands Elevated</span>
+            </div>
+            <div class="stat-item">
+              <div class="stat-display"><span class="stat-num js-count" data-to="3">0</span><span class="stat-suffix">+</span></div>
+              <span class="stat-label">Years in Operation</span>
+            </div>
+            <div class="stat-item">
+              <div class="stat-display"><span class="stat-num js-count" data-to="6">0</span></div>
+              <span class="stat-label">Core Disciplines</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== SUSPENSE INTERSTITIAL ===================== -->
+      <!-- Beat 3.5: THE REVEAL — one devastating sentence -->
+      <section class="interstitial" id="interstitial" aria-hidden="true">
+        <div class="container">
+          <p class="interstitial-text js-interstitial">
+            <span class="i-word">We</span>
+            <span class="i-word">don't</span>
+            <span class="i-word">do</span>
+            <span class="i-word i-accent">fragments.</span>
+          </p>
+        </div>
+      </section>
+
+      <!-- ===================== HORIZONTAL CONVERGE ===================== -->
+      <!-- Beat 3.7: THE CONVERGENCE — every word rushes to a single truth -->
+      <section class="converge" id="converge" aria-label="Our philosophy">
+        <div class="converge-sticky">
+          <!-- Three rows: left side, right side, centre anchor -->
+          <div class="conv-row conv-row--top">
+            <span class="conv-word conv-left"  data-dir="left">Strategy</span>
+            <span class="conv-sep">+</span>
+            <span class="conv-word conv-right" data-dir="right">Design</span>
+          </div>
+          <div class="conv-row conv-row--mid">
+            <span class="conv-word conv-left"  data-dir="left">Identity</span>
+            <span class="conv-sep">+</span>
+            <span class="conv-word conv-right" data-dir="right">Technology</span>
+          </div>
+          <div class="conv-row conv-row--bot">
+            <span class="conv-word conv-left"  data-dir="left">Content</span>
+            <span class="conv-sep">+</span>
+            <span class="conv-word conv-right" data-dir="right">Commerce</span>
+          </div>
+          <div class="conv-conclusion" aria-hidden="true">
+            <span class="conv-equals">=</span>
+            <span class="conv-result">VRYKS</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== PROCESS ===================== -->
+      <!-- Beat 4: THE SYSTEM — relief. It's all one thing. -->
+      <section class="process" id="process" aria-labelledby="process-heading">
+        <div class="process-inner">
+          <div class="container">
+            <h2 class="process-title" id="process-heading">
+              <span class="p-line"><span class="p-word">One</span> <span class="p-word">System.</span></span>
+              <span class="p-line"><span class="p-word">Zero</span> <span class="p-word p-accent">Friction.</span></span>
+            </h2>
+            <p class="process-desc">
+              We eliminate fragmentation between strategy, design, and technology. VRYKS operates as your embedded creative and technical partner — ensuring your brand stays coherent, compelling, and commercially sharp as it scales.
+            </p>
+
+            <!-- Interactive Process Diagram (Plan 6) -->
+            <div class="proc-diagram-wrap" aria-hidden="true">
+              <svg class="proc-svg" viewBox="0 0 900 280" xmlns="http://www.w3.org/2000/svg">
+                <!-- Grid verticals -->
+                <line class="proc-grid" x1="100" y1="20" x2="100" y2="260"/>
+                <line class="proc-grid" x1="300" y1="20" x2="300" y2="260"/>
+                <line class="proc-grid" x1="500" y1="20" x2="500" y2="260"/>
+                <line class="proc-grid" x1="700" y1="20" x2="700" y2="260"/>
+                <line class="proc-grid" x1="800" y1="20" x2="800" y2="260"/>
+                <!-- S-curve connecting all nodes -->
+                <path class="proc-curve" d="M 100,210 C 200,210 200,80 300,80 C 400,80 400,210 500,210 C 600,210 600,80 700,80 C 750,80 750,210 800,210"/>
+                <!-- Node groups -->
+                <g class="proc-node-g"><circle class="proc-pulse" cx="100" cy="210" r="10"/><circle class="proc-node" cx="100" cy="210" r="6"/></g>
+                <g class="proc-node-g"><circle class="proc-pulse" cx="300" cy="80"  r="10"/><circle class="proc-node" cx="300" cy="80"  r="6"/></g>
+                <g class="proc-node-g"><circle class="proc-pulse" cx="500" cy="210" r="10"/><circle class="proc-node" cx="500" cy="210" r="6"/></g>
+                <g class="proc-node-g"><circle class="proc-pulse" cx="700" cy="80"  r="10"/><circle class="proc-node" cx="700" cy="80"  r="6"/></g>
+                <g class="proc-node-g"><circle class="proc-pulse" cx="800" cy="210" r="10"/><circle class="proc-node" cx="800" cy="210" r="6"/></g>
+                <!-- Stage labels -->
+                <text class="proc-label" x="100" y="240" text-anchor="middle">Discovery</text>
+                <text class="proc-label" x="300" y="60"  text-anchor="middle">Strategy</text>
+                <text class="proc-label" x="500" y="240" text-anchor="middle">Design</text>
+                <text class="proc-label" x="700" y="60"  text-anchor="middle">Build</text>
+                <text class="proc-label" x="800" y="240" text-anchor="middle">Launch</text>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== TEAM ===================== -->
+      <!-- Beat 5: THE PEOPLE — trust, before the ask -->
+      <section class="team" id="team" aria-labelledby="team-heading">
+        <div class="container">
+          <span class="eyebrow">The Core Team</span>
+          <h2 class="sr-only" id="team-heading">Meet the team behind VRYKS</h2>
+          <ul class="team-list" role="list">
+            <li class="team-item js-team-item" role="listitem">
+              <div class="team-rule"></div>
+              <div class="team-row">
+                <span class="team-name">Sagnik Dutta</span>
+                <span class="team-role">CEO &amp; Marketing Head<br><a href="https://www.linkedin.com/in/sagnik-dutta-524720250/" target="_blank" style="text-decoration: underline;">LinkedIn</a> | +91 824 080 9239</span>
+              </div>
+            </li>
+            <li class="team-item js-team-item" role="listitem">
+              <div class="team-rule"></div>
+              <div class="team-row">
+                <span class="team-name">Ishan Mitra</span>
+                <span class="team-role">Co-Founder, Creative Direction<br><a href="https://www.linkedin.com/in/ishan-mitra-279385272/" target="_blank" style="text-decoration: underline;">LinkedIn</a> | +91 704 462 1874</span>
+              </div>
+            </li>
+            <li class="team-item js-team-item" role="listitem">
+              <div class="team-rule"></div>
+              <div class="team-row">
+                <span class="team-name">Debayan Mukherjee</span>
+                <span class="team-role">Co-Founder, Technical Direction<br><a href="https://www.linkedin.com/in/dev-web3000/" target="_blank" style="text-decoration: underline;">LinkedIn</a> | +91 629 027 6285</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ===================== PORTFOLIO ===================== -->
+      <!-- Portfolio removed for now -->
+
+      <!-- ===================== INTERSTITIAL ===================== -->
+      <!-- Beat 6: THE INVITATION — desire and action -->
+      <section class="contact" id="contact" aria-labelledby="contact-heading">
+        <div class="container contact-inner">
+          <h2 class="contact-title" id="contact-heading">
+            <span class="c-part c-part-left">Ready</span>
+            <span class="c-part c-part-right">to Scale?</span>
+          </h2>
+          <p class="contact-desc">Let's discuss the strategic roadmap for your brand's next phase.</p>
+
+          <!-- Contact Form (Plan 9) -->
+          <form action="https://formsubmit.co/vrikshcreatives@gmail.com" method="POST" class="contact-form js-contact-form" aria-label="Discovery brief form">
+            <input type="hidden" name="_captcha" value="false">
+            <div class="cf-row">
+              <div class="cf-field">
+                <label class="cf-label" for="cf-name">Full Name</label>
+                <input class="cf-input" id="cf-name" name="name" type="text" placeholder="Your name" autocomplete="name" required />
+              </div>
+              <div class="cf-field">
+                <label class="cf-label" for="cf-email">Email Address</label>
+                <input class="cf-input" id="cf-email" name="email" type="email" placeholder="you@company.com" autocomplete="email" required />
+              </div>
+            </div>
+            <div class="cf-field">
+              <label class="cf-label" for="cf-brand">Brand / Company</label>
+              <input class="cf-input" id="cf-brand" name="brand" type="text" placeholder="ACME Corp" />
+            </div>
+            <div class="cf-field">
+              <label class="cf-label" for="cf-brief">Tell us about your project</label>
+              <textarea class="cf-input cf-textarea" id="cf-brief" name="brief" placeholder="We're looking to redesign our brand and launch a new digital platform..." required></textarea>
+            </div>
+            <div class="cf-foot">
+              <button class="btn-primary btn-large js-magnetic cf-submit" type="submit" id="contact-cta">
+                <span class="btn-label">Send Discovery Brief</span>
+                <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </button>
+              <span class="cf-note">We respond within 24 hours.</span>
+            </div>
+          </form>
+
+          <!-- Success State -->
+          <div class="cf-success" aria-live="polite" aria-atomic="true">
+            <div class="cf-success-icon">✓</div>
+            <p class="cf-success-msg">Brief received. We'll be in touch within 24 hours.</p>
+            <span class="cf-success-sub">hello@vryks.studio</span>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="footer" role="contentinfo">
+      <div class="container">
+        <div class="footer-top">
+          <div class="footer-brand">
+            <span class="footer-logo">VRYKS</span>
+            <p class="footer-tag">Strategy Meets Creative Excellence.</p>
+          </div>
+          <nav class="footer-cols" aria-label="Footer navigation">
+            <div class="footer-col">
+              <span class="footer-col-hd">Services</span>
+              <ul>
+                <li><a href="#capabilities">Brand Strategy</a></li>
+                <li><a href="#capabilities">Design Systems</a></li>
+                <li><a href="#capabilities">Web Development</a></li>
+                <li><a href="#capabilities">Photography</a></li>
+                <li><a href="#capabilities">Marketing</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <span class="footer-col-hd">Studio</span>
+              <ul>
+                <li><a href="#thesis">Our Thesis</a></li>
+                <li><a href="#process">Process</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#portfolio">Selected Work</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <span class="footer-col-hd">Connect</span>
+              <ul>
+                <li><a href="mailto:hello@vryks.studio" class="js-scramble">hello@vryks.studio</a></li>
+                <li><a href="#" target="_blank" rel="noopener" class="js-scramble">Instagram</a></li>
+                <li><a href="#" target="_blank" rel="noopener" class="js-scramble">LinkedIn</a></li>
+                <li><a href="#contact" class="footer-cta">Start Discovery →</a></li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+        <div class="footer-bottom">
+          <span class="footer-loc">Kolkata, India &nbsp;—&nbsp; Est. 2023</span>
+          <p class="footer-copy">&copy; 2026 VRYKS Studio. All rights reserved.</p>
+          <span class="footer-crafted">Crafted with intention.</span>
+        </div>
+      </div>
+    </footer>
+
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>

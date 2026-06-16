@@ -1,0 +1,20 @@
+{
+  "name": "vryks-landing",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^5.2.0"
+  },
+  "dependencies": {
+    "@types/three": "^0.184.0",
+    "gsap": "^3.12.5",
+    "lenis": "^1.1.14",
+    "three": "^0.165.0"
+  }
+}
