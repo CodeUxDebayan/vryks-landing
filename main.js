@@ -603,9 +603,6 @@ async function boot() {
 
   requestAnimationFrame(() => ScrollTrigger.refresh());
 
-  import('./scene.js')
-    .then(m => m.initScene(lenis))
-    .catch(err => console.warn('[VRYKS] 3D scene unavailable:', err));
 }
 
 boot();
