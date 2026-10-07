@@ -288,19 +288,6 @@ function animateStats() {
     scrollTrigger: { trigger: '.stats', start: 'top 78%', toggleActions: 'play none none reverse',
       onEnter: () => playSectionTone('stats') },
   });
-
-  document.querySelectorAll('.js-count').forEach(el => {
-    const to = +el.dataset.to;
-    ScrollTrigger.create({
-      trigger: el.closest('.stat-item'), start: 'top 80%', once: true,
-      onEnter: () => {
-        gsap.fromTo({ n: 0 }, { n: to }, {
-          duration: 2.2, ease: 'power2.out',
-          onUpdate() { el.textContent = Math.round(this.targets()[0].n); },
-        });
-      },
-    });
-  });
 }
 
 // ─── 13. PORTFOLIO (Plan 4 — 3D hover card tilt) ──────────────────────────────
