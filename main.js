@@ -143,15 +143,19 @@ function initSectionCursor() {
   if (!label || window.matchMedia('(hover: none)').matches) return;
 
   const sections = [
-    { sel: '.hero',         text: 'Scroll Down'  },
-    { sel: '.thesis',       text: 'Our Position' },
-    { sel: '.capabilities', text: 'Services'     },
-    { sel: '.stats',        text: 'By Numbers'   },
-    { sel: '.portfolio',    text: 'View Work'     },
-    { sel: '.converge',     text: 'Our Formula'  },
-    { sel: '.process',      text: 'Our System'   },
-    { sel: '.team',         text: 'The People'   },
-    { sel: '.contact',      text: "Let's Talk"   },
+    { sel: '.hero',             text: 'Scroll Down'   },
+    { sel: '.thesis',           text: 'Our Position'  },
+    { sel: '.capabilities',     text: 'Services'      },
+    { sel: '.stats',            text: 'By Numbers'    },
+    { sel: '.portfolio',        text: 'View Work'     },
+    { sel: '.technology',       text: 'Our Stack'     },
+    { sel: '.ai-section',       text: 'AI Workflows'  },
+    { sel: '.products-section', text: 'We Build'      },
+    { sel: '.converge',         text: 'Our Formula'   },
+    { sel: '.process',          text: 'Our System'    },
+    { sel: '.about',            text: 'VRYKS Media'   },
+    { sel: '.team',             text: 'The Founders'  },
+    { sel: '.contact',          text: "Let's Build"   },
   ];
 
   const show = text => {
@@ -501,6 +505,83 @@ function initContactForm() {
 }
 
 // ─── 19. FOOTER ───────────────────────────────────────────────────────────────
+function animateTechnology() {
+  const section = document.querySelector('.technology');
+  if (!section) return;
+  gsap.fromTo('.tech-title .p-word', { y: '110%' }, {
+    y: '0%', duration: 1.1, stagger: { amount: 0.4, ease: 'power2.inOut' }, ease: E.out,
+    scrollTrigger: { trigger: section, start: 'top 75%', toggleActions: 'play none none reverse' },
+  });
+  gsap.fromTo('.tech-desc', { opacity: 0, y: 24 }, {
+    opacity: 1, y: 0, duration: 0.9, ease: E.out,
+    scrollTrigger: { trigger: section, start: 'top 72%', toggleActions: 'play none none reverse' },
+  });
+  gsap.fromTo('.tech-item', { opacity: 0, y: 20 }, {
+    opacity: 1, y: 0, duration: 0.7, ease: E.out,
+    stagger: { amount: 0.5, ease: 'power2.inOut' },
+    scrollTrigger: { trigger: '.tech-stack-grid', start: 'top 80%', toggleActions: 'play none none reverse' },
+  });
+}
+
+function animateAiSection() {
+  const section = document.querySelector('.ai-section');
+  if (!section) return;
+  gsap.fromTo('.ai-title .t-word', { y: '110%' }, {
+    y: '0%', duration: 1.1, stagger: { amount: 0.4, ease: 'power2.inOut' }, ease: E.out,
+    scrollTrigger: { trigger: section, start: 'top 75%', toggleActions: 'play none none reverse' },
+  });
+  gsap.fromTo('.ai-desc', { opacity: 0, y: 24 }, {
+    opacity: 1, y: 0, duration: 0.9, ease: E.out,
+    scrollTrigger: { trigger: section, start: 'top 72%', toggleActions: 'play none none reverse' },
+  });
+  gsap.fromTo('.ai-use-item', { opacity: 0, x: -24 }, {
+    opacity: 1, x: 0, duration: 0.7, ease: E.out,
+    stagger: { amount: 0.45, ease: 'power2.inOut' },
+    scrollTrigger: { trigger: '.ai-uses', start: 'top 80%', toggleActions: 'play none none reverse' },
+  });
+  gsap.fromTo('.ai-flow', { opacity: 0, y: 30 }, {
+    opacity: 1, y: 0, duration: 1, ease: E.out,
+    scrollTrigger: { trigger: '.ai-right', start: 'top 80%', toggleActions: 'play none none reverse' },
+  });
+  gsap.fromTo('.ai-flow-step', { opacity: 0, x: 20 }, {
+    opacity: 1, x: 0, duration: 0.5, ease: E.out,
+    stagger: { amount: 0.5, ease: 'power2.inOut' },
+    scrollTrigger: { trigger: '.ai-flow', start: 'top 75%', toggleActions: 'play none none reverse' },
+  });
+}
+
+function animateProducts() {
+  const section = document.querySelector('.products-section');
+  if (!section) return;
+  gsap.fromTo('.products-title', { opacity: 0, y: 40 }, {
+    opacity: 1, y: 0, duration: 1, ease: E.out,
+    scrollTrigger: { trigger: section, start: 'top 78%', toggleActions: 'play none none reverse' },
+  });
+  gsap.fromTo('.product-card', { opacity: 0, y: 32 }, {
+    opacity: 1, y: 0, duration: 0.8, ease: E.out,
+    stagger: { amount: 0.4, ease: 'power2.inOut' },
+    scrollTrigger: { trigger: '.products-grid', start: 'top 80%', toggleActions: 'play none none reverse' },
+  });
+}
+
+function animateAbout() {
+  const section = document.querySelector('.about');
+  if (!section) return;
+  gsap.fromTo('.about-title', { opacity: 0, y: 40 }, {
+    opacity: 1, y: 0, duration: 1.1, ease: E.out,
+    scrollTrigger: { trigger: section, start: 'top 78%', toggleActions: 'play none none reverse' },
+  });
+  gsap.fromTo('.about-body', { opacity: 0, y: 24 }, {
+    opacity: 1, y: 0, duration: 0.9, ease: E.out,
+    scrollTrigger: { trigger: '.about-right', start: 'top 80%', toggleActions: 'play none none reverse' },
+  });
+  gsap.fromTo('.about-meta-item', { opacity: 0, y: 20 }, {
+    opacity: 1, y: 0, duration: 0.7, ease: E.out,
+    stagger: { amount: 0.3, ease: 'power2.inOut' },
+    scrollTrigger: { trigger: '.about-meta-grid', start: 'top 82%', toggleActions: 'play none none reverse' },
+  });
+}
+
 function animateFooter() {
   gsap.fromTo('.footer-brand', { opacity: 0, y: 30 }, {
     opacity: 1, y: 0, duration: 1, ease: E.out,
@@ -592,8 +673,12 @@ async function boot() {
   animatePortfolio();
   animateInterstitial();
   animateConverge();
+  animateTechnology();
+  animateAiSection();
+  animateProducts();
   animateProcess();
   animateProcessDiagram();
+  animateAbout();
   animateTeam();
   animateContact();
   initContactForm();

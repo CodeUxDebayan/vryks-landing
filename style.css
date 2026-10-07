@@ -1237,3 +1237,290 @@ main { will-change: transform; }
   #pt, #cursor-label { display: none; }
   .proc-curve { filter: none; }
 }
+
+/* =========================================================
+   HERO — Secondary Button & Eyebrow Tag
+   ========================================================= */
+.hero-eyebrow-wrap { margin-bottom: 2rem; }
+.hero-eyebrow-tag { margin-bottom: 0; }
+
+.btn-secondary {
+  display: inline-flex; align-items: center; gap: 0.75rem;
+  background: transparent; color: var(--text);
+  font-family: var(--font-display); font-weight: 600;
+  font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.08em;
+  padding: 1.1rem 2.5rem; border-radius: 50px;
+  border: 1px solid rgba(255,255,255,0.2);
+  transition: border-color 0.3s, color 0.3s;
+  will-change: transform;
+}
+.btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+
+.hero-cta-wrap {
+  display: flex; align-items: center; gap: 1.5rem;
+  justify-content: center; flex-wrap: wrap; opacity: 0;
+}
+
+/* =========================================================
+   SERVICE CARDS — Highlighted capability variant
+   ========================================================= */
+.svc-card--highlight { background: rgba(0,87,255,0.025); }
+.svc-card--highlight .svc-num {
+  color: var(--accent);
+  text-shadow: 0 0 20px var(--accent-glow);
+}
+
+/* =========================================================
+   STATS — Year display (static, no counter)
+   ========================================================= */
+.stat-year {
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 6vw, 6.5rem);
+  font-weight: 700; letter-spacing: -0.04em; line-height: 1;
+  color: var(--text);
+}
+
+/* =========================================================
+   PORTFOLIO — section padding override
+   ========================================================= */
+.portfolio { padding: var(--section-gap) 0; overflow: visible; }
+
+/* =========================================================
+   TECHNOLOGY SECTION
+   ========================================================= */
+.technology {
+  position: relative; z-index: 10;
+  padding: var(--section-gap) 0;
+  background: transparent;
+}
+.tech-inner { width: 100%; }
+.tech-title {
+  font-size: clamp(3.5rem, 8vw, 8.5rem);
+  display: flex; flex-direction: column; gap: 0.05em; margin-bottom: 3rem;
+}
+.tech-desc {
+  font-size: clamp(1.1rem, 1.75vw, 1.4rem);
+  color: var(--text-muted); max-width: 700px;
+  line-height: 1.65; margin-bottom: 5rem;
+}
+.tech-stack-grid { display: flex; flex-wrap: wrap; gap: 1rem; }
+
+.tech-item {
+  border: 1px solid var(--border);
+  padding: 0.8rem 1.6rem; border-radius: 50px;
+  transition: border-color 0.3s, background 0.3s, color 0.3s;
+  cursor: default;
+}
+.tech-item:hover { border-color: rgba(0,87,255,0.4); background: rgba(0,87,255,0.06); }
+.tech-item--accent {
+  border-color: rgba(0,87,255,0.35);
+  background: rgba(0,87,255,0.05);
+}
+.tech-item--accent:hover { border-color: var(--accent); background: rgba(0,87,255,0.12); }
+.tech-name {
+  font-family: var(--font-display); font-size: 0.8rem;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted);
+}
+.tech-item--accent .tech-name { color: rgba(100,160,255,0.85); }
+.tech-item:hover .tech-name,
+.tech-item--accent:hover .tech-name { color: var(--text); }
+
+/* =========================================================
+   AI SECTION
+   ========================================================= */
+.ai-section {
+  position: relative; z-index: 10;
+  padding: var(--section-gap) 0;
+  background: transparent;
+  border-top: 1px solid var(--border);
+}
+.ai-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 8rem; align-items: start; margin-top: 4rem;
+}
+.ai-title {
+  font-size: clamp(3rem, 5.5vw, 5.5rem);
+  display: flex; flex-direction: column; gap: 0.05em; margin-bottom: 2.5rem;
+}
+.ai-desc {
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  color: var(--text-muted); line-height: 1.75;
+  margin-bottom: 3rem; max-width: 520px;
+}
+.ai-uses { display: flex; flex-direction: column; gap: 2rem; }
+.ai-use-item {
+  display: flex; flex-direction: column; gap: 0.4rem;
+  padding-left: 1.25rem;
+  border-left: 1px solid rgba(0,87,255,0.25);
+}
+.ai-use-label {
+  font-family: var(--font-display); font-size: 0.72rem;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent);
+}
+.ai-use-text { font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; }
+
+.ai-right {
+  display: flex; justify-content: flex-end;
+  position: sticky; top: calc(var(--nav-h) + 2rem);
+}
+.ai-flow {
+  display: flex; flex-direction: column; align-items: flex-start;
+  border: 1px solid var(--border); border-radius: 1rem;
+  padding: 2.5rem 2rem;
+  background: rgba(0,0,0,0.3);
+  backdrop-filter: blur(10px);
+  min-width: 220px;
+}
+.ai-flow-step {
+  display: flex; align-items: center; gap: 1rem; padding: 0.75rem 0;
+}
+.ai-flow-step--accent {
+  background: rgba(0,87,255,0.06); border-radius: 6px;
+  padding: 0.75rem; margin: 0 -0.75rem;
+  width: calc(100% + 1.5rem);
+}
+.ai-step-num {
+  font-family: 'Courier New', monospace; font-size: 0.65rem;
+  color: var(--accent); letter-spacing: 0.08em; min-width: 1.8rem;
+}
+.ai-step-label {
+  font-family: var(--font-display); font-size: 0.8rem;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted);
+}
+.ai-flow-step--accent .ai-step-label { color: var(--text); }
+.ai-flow-arrow { color: rgba(0,87,255,0.4); font-size: 0.9rem; padding-left: 0.3rem; }
+.ai-badge {
+  display: flex; align-items: center; gap: 0.5rem; margin-top: 1.5rem;
+  padding: 0.5rem 1rem; border-radius: 50px;
+  border: 1px solid rgba(0,87,255,0.3);
+  background: rgba(0,87,255,0.06);
+  font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(100,160,255,0.75);
+}
+
+@media (max-width: 1024px) {
+  .ai-grid { grid-template-columns: 1fr; gap: 4rem; }
+  .ai-right { justify-content: flex-start; position: static; }
+}
+
+/* =========================================================
+   PRODUCTS & SYSTEMS SECTION
+   ========================================================= */
+.products-section {
+  position: relative; z-index: 10;
+  padding: var(--section-gap) 0;
+  background: transparent;
+  border-top: 1px solid var(--border);
+}
+.products-header {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 5rem; align-items: start; margin-bottom: 5rem;
+}
+.products-title { font-size: clamp(2.5rem, 4.5vw, 4.5rem); line-height: 1.1; }
+.products-desc {
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  color: var(--text-muted); line-height: 1.75;
+  padding-top: 0.5rem; max-width: 480px;
+}
+.products-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 1px; border: 1px solid var(--border);
+  border-radius: 4px; overflow: hidden;
+}
+.product-card {
+  padding: 3rem; background: rgba(0,0,0,0.3);
+  display: flex; flex-direction: column; gap: 1.25rem;
+  transition: background 0.3s;
+}
+.product-card:hover { background: rgba(0,87,255,0.04); }
+.product-card-head { display: flex; flex-direction: column; gap: 0.75rem; }
+.product-status {
+  display: inline-block; font-family: var(--font-display);
+  font-size: 0.6rem; letter-spacing: 0.16em; text-transform: uppercase;
+  border-radius: 50px; padding: 0.3rem 0.8rem; width: fit-content;
+}
+.product-status--live {
+  background: rgba(0,200,100,0.1); color: #00c864;
+  border: 1px solid rgba(0,200,100,0.25);
+}
+.product-status--dev {
+  background: rgba(0,87,255,0.1); color: rgba(100,160,255,0.8);
+  border: 1px solid rgba(0,87,255,0.25);
+}
+.product-name { font-size: clamp(1.4rem, 2vw, 1.75rem); font-weight: 500; }
+.product-desc { font-size: 0.9rem; color: var(--text-muted); line-height: 1.7; flex: 1; }
+.product-tags {
+  display: flex; flex-wrap: wrap; gap: 0.5rem; list-style: none; padding: 0; margin: 0;
+}
+.product-tags li {
+  font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase;
+  border: 1px solid var(--border); padding: 0.3rem 0.75rem;
+  border-radius: 50px; color: var(--text-muted);
+}
+
+@media (max-width: 768px) {
+  .products-header { grid-template-columns: 1fr; gap: 2rem; }
+  .products-grid { grid-template-columns: 1fr; }
+}
+
+/* =========================================================
+   ABOUT SECTION
+   ========================================================= */
+.about {
+  position: relative; z-index: 10;
+  padding: var(--section-gap) 0;
+  background: transparent; border-top: 1px solid var(--border);
+}
+.about-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 8rem; align-items: start; margin-top: 4rem;
+}
+.about-title {
+  font-size: clamp(2.25rem, 4vw, 4rem);
+  line-height: 1.15; font-weight: 500;
+}
+.about-body {
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  color: var(--text-muted); line-height: 1.8; margin-bottom: 3rem;
+}
+.about-meta-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;
+}
+.about-meta-item { display: flex; flex-direction: column; gap: 0.4rem; }
+.about-meta-label {
+  font-family: var(--font-display); font-size: 0.65rem;
+  letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent);
+}
+.about-meta-value { font-size: 0.95rem; color: var(--text); font-weight: 500; }
+
+@media (max-width: 1024px) { .about-grid { grid-template-columns: 1fr; gap: 3rem; } }
+@media (max-width: 640px) { .about-meta-grid { grid-template-columns: 1fr; } }
+
+/* =========================================================
+   TEAM — Role title sub-line
+   ========================================================= */
+.team-name-wrap { display: flex; flex-direction: column; gap: 0.35rem; }
+.team-role-title {
+  font-size: 0.8rem; color: var(--text-muted);
+  letter-spacing: 0.05em; font-family: var(--font-body);
+  font-weight: 400; text-transform: none;
+}
+
+/* =========================================================
+   CONTACT — Multi-line title
+   ========================================================= */
+.contact-title {
+  font-size: clamp(2.5rem, 6vw, 7rem) !important;
+  display: flex !important; flex-direction: column !important;
+  align-items: center !important; gap: 0.08em !important;
+}
+
+/* =========================================================
+   FOOTER — Legal company name
+   ========================================================= */
+.footer-company-name {
+  font-family: var(--font-display);
+  font-size: 0.7rem; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--text-muted);
+  margin-top: 0.35rem;
+}
